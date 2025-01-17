@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm-run-all --parallel sass serve",
-    "serve": "live-server",
-    "sass": "sass --watch styles.scss output.css"
+    "serve": "live-server src",
+    "sass": "sass --watch src/styles.scss src/output.css"
   },
   "author": "",
   "license": "ISC",
