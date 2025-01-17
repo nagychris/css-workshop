@@ -1,0 +1,60 @@
+/* CSS Basics */
+
+h1 {
+  color: red;
+}
+
+.flex-container {
+  display: flex; /* or inline-flex */
+  flex-direction: row; /* items aligned in row */
+  justify-content: space-between; /* items spaced evenly */
+  align-items: center; /* items centered vertically */
+  gap: 10px; /* spacing between items */
+}
+
+.item {
+  flex: 1; /* item takes up all available space */
+  padding: 10px;
+  background: lightblue;
+  border: 1px solid grey;
+}
+
+/* Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  grid-template-rows: 100px 100px;   /* Two rows with fixed height */
+  gap: 10px;                         /* Spacing between items */
+}
+
+.item {
+  background-color: lightblue;
+  border: 1px solid gray;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Specificity and Source Order */
+
+p { color: red; }       /* Specificity: 1 */
+#intro { color: blue; } /* Specificity: 100 -> wins */
+
+span { color: green; } /* Declared earlier */
+span { color: blue; } /* Declared later -> wins */
+
+/* Challenges using Pure CSS */
+
+/* Deeply nested rules: hard to read & maintain */
+nav ul { margin: 0; }
+nav ul li { list-style: none; }
+nav ul li a { text-decoration: none; }
+
+/* Repeated rules: hard to maintain */
+button {
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+}
+button.primary {
+  border: 1px solid #000;
+  background-color: #3498db;
+}

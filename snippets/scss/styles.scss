@@ -1,0 +1,102 @@
+// Sass Examples
+// Note: we wont be able to simply include this file into a HTML file, but 
+// we need to use a compiler to convert this file into a CSS file first -> we
+// need a library for that, e.g., dart-sass or sass npm package
+
+// Note: usually sass is already integrated in the toolchain, e.g., in
+// create-react-app using vite / webpack
+
+// Variables
+$font-size: 16px;
+body {
+  font-size: $font-size;
+}
+
+// Nesting
+nav {
+  ul {
+    li {
+      a {
+        color: blue;
+      }
+    }
+  }
+}
+// Compiled to:
+// nav ul li a { color: blue; }
+
+// Mixins
+@mixin flex($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+.container {
+  @include flex(space-between, flex-start);
+}
+/* 
+Compiled to: 
+.container { 
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+*/
+
+// Functions: calculating color
+@function invert($color, $amount: 100%) {
+  $inverse: change-color($color, $hue: hue($color) + 180);
+  @return mix($inverse, $color, $amount);
+}
+
+$primary-color: #036;
+.header {
+  background-color: invert($primary-color, 80%);
+}
+
+// Partials: split code into re-usable modules
+@use 'variables';
+body {
+  color: variables.$primary-color;
+}
+
+// Operators
+.container {
+  width: calculate-width(12, 60px, 20px);
+}
+
+// Conditionals
+$theme: 'light';
+
+body {
+  @if $theme == 'light' {
+    background-color: white;
+    color: black;
+  } @else {
+    background-color: black;
+    color: white;
+  }
+}
+
+// Loops
+@for $i from 1 through 3 {
+  .item-#{$i} {
+    width: 100px * $i;
+  }
+}
+
+// Extends
+%button {
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  @extend %button;
+  background-color: blue;
+}
+
+.btn-secondary {
+  @extend %button;
+  background-color: red;
+}
