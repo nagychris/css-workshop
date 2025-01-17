@@ -1,0 +1,37 @@
+// Define variables
+$padding: 20px;
+$card-bg: #fff;
+$primary-bg: lightblue;
+$secondary-bg: lightcyan;
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+// Create mixin
+@mixin card-variant($bg) {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: $bg;
+}
+
+// Write refactored styles
+.card {
+  padding: $padding;
+  background-color: $card-bg;
+  @include card-variant($card-bg);
+
+  &-primary {
+    @include card-variant($primary-bg);
+  }
+
+  &-secondary {
+    @include card-variant($secondary-bg);
+  }
+}
