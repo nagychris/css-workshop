@@ -1,21 +1,14 @@
-import { useState } from 'react';
-import { Card } from './components/Card';
+import { StudiesList } from './components/StudiesList';
 
 function App() {
-    const [count, setCount] = useState(0);
+    const studies = [
+        { patientId: 1, name: 'Anonym', analysis: 'mdbrain Tumor' },
+        { patientId: 2, name: 'Anna_Longi', analysis: 'mdbrain Aneursym' },
+        { patientId: 3, name: 'Unknown', analysis: 'mdprostate' },
+        { patientId: 4, name: 'Unknown', analysis: 'mdknee' },
+    ];
 
-    return (
-        <div>
-            // TODO render some kind of list of cards with some dummy data
-            <Card />
-            <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => setCount(count + 1)}
-            >
-                +
-            </button>
-        </div>
-    );
+    return <StudiesList studies={studies} />;
 }
 
 export default App;
