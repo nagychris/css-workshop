@@ -1,7 +1,7 @@
 # Workshop Task 2: Refactoring CSS using Sass (SCSS)
 ## Objective
 1. Refactor the repetitive CSS (`styles.css`) into SCSS (`styles.scss`).
-2. Use variables, mixins, and nesting to improve maintainability.
+2. Use Sass features like variables, mixins, and nesting to improve maintainability.
 3. See how SCSS compiles to CSS.
 
 ## Prerequisites
