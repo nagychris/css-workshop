@@ -58,3 +58,17 @@ button.primary {
   border: 1px solid #000;
   background-color: #3498db;
 }
+
+/* CSS Resets */
+
+/* Browser default style (approximate) */
+h2 {
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+}
+
+/* Reset */
+h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
