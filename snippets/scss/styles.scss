@@ -11,6 +11,8 @@ $font-size: 16px;
 body {
   font-size: $font-size;
 }
+// CSS
+// body { font-size: 16px; }
 
 // Nesting
 nav {
@@ -22,7 +24,7 @@ nav {
     }
   }
 }
-// Compiled to:
+// CSS
 // nav ul li a { color: blue; }
 
 // Mixins
@@ -35,7 +37,7 @@ nav {
   @include flex(space-between, flex-start);
 }
 /* 
-Compiled to: 
+CSS
 .container { 
   display: flex;
   justify-content: space-between;
@@ -60,10 +62,68 @@ body {
   color: variables.$primary-color;
 }
 
-// Operators
-.container {
-  width: calculate-width(12, 60px, 20px);
+// Extend
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
 }
+
+// Won't be compiled
+%equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success {
+  @extend %message-shared;
+  border-color: green;
+}
+
+/* CSS
+.message, .success {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+.success {
+  border-color: green;
+}
+*/
+// Operators
+@use "sass:math";
+
+.container {
+  display: flex;
+}
+
+article[role="main"] {
+  width: math.div(600px, 960px) * 100%;
+}
+
+aside[role="complementary"] {
+  width: math.div(300px, 960px) * 100%;
+  margin-left: auto;
+}
+
+/* CSS
+.container {
+  display: flex;
+}
+article[role=main] {
+  width: 62.5%;
+}
+
+aside[role=complementary] {
+  width: 31.25%;
+  margin-left: auto;
+}
+
+*/
 
 // Conditionals
 $theme: 'light';
@@ -85,18 +145,4 @@ body {
   }
 }
 
-// Extends
-%button {
-  padding: 10px 20px;
-  border-radius: 5px;
-}
 
-.btn-primary {
-  @extend %button;
-  background-color: blue;
-}
-
-.btn-secondary {
-  @extend %button;
-  background-color: red;
-}

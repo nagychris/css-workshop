@@ -4,6 +4,7 @@ h1 {
   color: red;
 }
 
+
 .flex-container {
   display: flex; /* or inline-flex */
   flex-direction: row; /* items aligned in row */
@@ -59,16 +60,20 @@ button.primary {
   background-color: #3498db;
 }
 
-/* CSS Resets */
-
-/* Browser default style (approximate) */
-h2 {
-  margin-top: 0.83em;
-  margin-bottom: 0.83em;
+/* Variables (Custom Properties) */
+:root {
+  --primary-color: #3498db;
 }
 
-/* Reset */
-h2 {
-  margin-top: 0;
-  margin-bottom: 0;
+button.primary {
+  --primary-color: red;
+  background-color: var(--primary-color);
+}
+
+/* CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
